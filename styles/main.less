@@ -1,11 +1,17 @@
 @import "ui-variables";
 
 @flash-background: fadeout(darken(@syntax-selection-flash-color, 10%), 20%);
+@flash-edit-background: fadeout(darken(@syntax-color-modified, 10%), 20%);
 @annotation-color: fadeout(lighten(@text-color-info, 10%), 20%);
 @annotation-bg-color: fadeout(lighten(@background-color-selected, 10%), 20%);
 
 @keyframes cursor-history-flash {
   from { background-color: @flash-background; }
+  to { background-color: transparent; }
+}
+
+@keyframes cursor-history-flash-edit {
+  from { background-color: @flash-edit-background; }
   to { background-color: transparent; }
 }
 
@@ -22,6 +28,12 @@ atom-text-editor.editor .line.cursor-history-flash-line {
 
 atom-text-editor.editor .line.cursor-history-highlight-line {
   animation-name: cursor-history-flash;
+  animation-iteration-count: 1;
+  animation-duration: 3s;
+}
+
+atom-text-editor.editor .line.cursor-history-highlight-line-edited {
+  animation-name: cursor-history-flash-edit;
   animation-iteration-count: 1;
   animation-duration: 3s;
 }
