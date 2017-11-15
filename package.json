@@ -81,7 +81,16 @@
     "watch": "fswatch -0 spec lib | xargs -0 -n1 -I{} apm test",
     "prettier": "prettier --write --no-semi --print-width=120 --no-bracket-spacing --trailing-comma=es5 'lib/**/*.js' 'spec/*.js'"
   },
-  "dependencies": {},
+  "consumedServices": {
+    "minimap": {
+      "versions": {
+        "1.0.0": "consumeMinimapServiceV1"
+      }
+    }
+  },
+  "dependencies": {
+      "event-kit": ">= 0.7.2"
+  },
   "devDependencies": {
     "prettier": "^1.5.3"
   }
